@@ -47,7 +47,6 @@ import dev.beefers.vendetta.manager.ui.screen.installer.InstallerScreen
 import dev.beefers.vendetta.manager.ui.screen.settings.SettingsScreen
 import dev.beefers.vendetta.manager.ui.viewmodel.home.HomeViewModel
 import dev.beefers.vendetta.manager.ui.widgets.AppIcon
-import dev.beefers.vendetta.manager.ui.widgets.dialog.EndOfLifeDialog
 import dev.beefers.vendetta.manager.ui.widgets.dialog.StoragePermissionsDialog
 import dev.beefers.vendetta.manager.ui.widgets.home.CommitList
 import dev.beefers.vendetta.manager.ui.widgets.updater.UpdateDialog
@@ -85,10 +84,6 @@ class HomeScreen : Screen {
         // == Dialogs == //
 
         StoragePermissionsDialog()
-
-        if (viewModel.showEolDialog)
-            EndOfLifeDialog { viewModel.showEolDialog = false }
-
 
         if (
             viewModel.showUpdateDialog &&

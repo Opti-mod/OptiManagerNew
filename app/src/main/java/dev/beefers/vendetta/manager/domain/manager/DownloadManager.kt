@@ -30,7 +30,7 @@ class DownloadManager(
 
     suspend fun downloadUpdate(out: File) =
         download(
-            "https://github.com/pyoncord/BunnyManager/releases/latest/download/Manager.apk",
+            "https://github.com/Opti-mod/OptiManagerNew/releases/latest/download/Manager.apk",
             out
         ) {
             /* TODO: Update a progress bar in the update dialog */
@@ -54,7 +54,7 @@ class DownloadManager(
             ?: throw IllegalStateException("DownloadManager service is not available")
 
         val downloadId = DownloadManager.Request(Uri.parse(url))
-            .setTitle("Bunny Manager")
+            .setTitle("Opti Manager")
             .setDescription("Downloading ${out.name}...")
             .setDestinationUri(Uri.fromFile(out))
             .setNotificationVisibility(DownloadManager.Request.VISIBILITY_VISIBLE)

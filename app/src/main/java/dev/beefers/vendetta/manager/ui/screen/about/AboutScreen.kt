@@ -133,13 +133,13 @@ class AboutScreen : Screen {
                         LinkItem(
                             icon = R.drawable.ic_github,
                             label = R.string.label_github,
-                            link = "https://github.com/bunny-mod"
+                            link = "https://github.com/Opti-mod"
                         )
 
                         LinkItem(
                             icon = R.drawable.ic_discord,
                             label = R.string.label_discord,
-                            link = "https://discord.gg/XjYgWXHb9Q"
+                            link = "https://discord.gg/zm5MWBPeRp"
                         )
                     }
                 }
@@ -151,9 +151,7 @@ class AboutScreen : Screen {
                         .fillMaxWidth()
                         .padding(top = 16.dp, bottom = 20.dp)
                 ) {
-                    UserEntry("Fiery", "Lead dev\niOS", "FieryFlames")
-                    UserEntry("Maisy", "Creator\nVendetta", "maisymoe", isLarge = true)
-                    UserEntry("Wing", "Lead dev\nManager", "wingio")
+                    UserEntry("Byeoon", "Creator\nOpti", "byeoon", isLarge = true)
                 }
 
                 Text(
@@ -197,25 +195,17 @@ class AboutScreen : Screen {
                 ) {
                     ElevatedCard {
                         ListItem(
-                            text = "rushii",
-                            subtext = "Installer, zip library, and a portion of patching",
-                            imageUrl = "https://github.com/rushiiMachine.png",
+                            text = "placeholder",
+                            subtext = "U could be here",
+                            imageUrl = "https://github.com/byeoon.png",
                             onClick = {
-                                uriHandler.openUri("https://github.com/rushiiMachine")
+                                uriHandler.openUri("https://github.com/byeoon")
                             }
                         )
                         HorizontalDivider(
                             modifier = Modifier.padding(horizontal = 16.dp),
                             thickness = 0.5.dp,
                             color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
-                        )
-                        ListItem(
-                            text = "Xinto",
-                            subtext = "for the preference manager",
-                            imageUrl = "https://github.com/X1nto.png",
-                            onClick = {
-                                uriHandler.openUri("https://github.com/X1nto")
-                            }
                         )
                     }
                 }
