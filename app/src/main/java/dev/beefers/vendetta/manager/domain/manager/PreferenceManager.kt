@@ -18,7 +18,7 @@ class PreferenceManager(context: Context) :
 
     var packageName by stringPreference("package_name", "io.github.pyoncord.app")
 
-    var appName by stringPreference("app_name", "Bunny")
+    var appName by stringPreference("app_name", "Opti")
 
     var discordVersion by stringPreference("discord_version", "")
 

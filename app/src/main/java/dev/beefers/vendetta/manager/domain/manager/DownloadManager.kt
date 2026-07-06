@@ -31,7 +31,7 @@ class DownloadManager(
 
     suspend fun downloadUpdate(out: File) =
         download(
-            "https://github.com/Opti-mod/OptiManagerNew/releases/latest/download/Manager.apk",
+            "https://github.com/Opti-mod/OptiManager/releases/latest/download/Manager.apk",
             out
         ) {
             /* TODO: Update a progress bar in the update dialog */

@@ -51,7 +51,7 @@ class StepRunner(
             Supported ABIs: ${Build.SUPPORTED_ABIS.joinToString()}
             Device: ${Build.MANUFACTURER} - ${Build.MODEL} (${Build.DEVICE})
             ${if(Build.VERSION.SDK_INT > Build.VERSION_CODES.S) "SOC: ${Build.SOC_MANUFACTURER} ${Build.SOC_MODEL}\n" else "\n\n"} 
-            Adding Bunny to Discord v$discordVersion
+            Adding Opti to Discord v$discordVersion
             
             
         """.trimIndent()

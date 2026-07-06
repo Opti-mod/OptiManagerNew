@@ -108,7 +108,7 @@ class HomeViewModel(
 
     private fun checkForUpdate() {
         screenModelScope.launch {
-            release = repo.getLatestRelease("Opti-mod/OptiManagerNew").dataOrNull
+            release = repo.getLatestRelease("Opti-mod/OptiManager").dataOrNull
             release?.let {
                 showUpdateDialog = it.tagName.toInt() > BuildConfig.VERSION_CODE
             }
