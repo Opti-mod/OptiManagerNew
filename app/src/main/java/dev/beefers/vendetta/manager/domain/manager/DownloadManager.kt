@@ -23,7 +23,7 @@ class DownloadManager(
 
     suspend fun downloadVendetta(out: File, onProgressUpdate: (Float?) -> Unit) =
         download(
-            "https://github.com/pyoncord/BunnyXposed/releases/latest/download/app-release.apk",
+            "https://github.com/Opti-mod/OptiXposed/releases/latest/download/app-release.apk",
             out,
             onProgressUpdate
         )

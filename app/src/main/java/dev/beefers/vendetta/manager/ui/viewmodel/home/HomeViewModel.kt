@@ -108,11 +108,11 @@ class HomeViewModel(
 
     private fun checkForUpdate() {
         screenModelScope.launch {
-            release = repo.getLatestRelease("pyoncord/BunnyManager").dataOrNull
+            release = repo.getLatestRelease("Opti-mod/OptiManagerNew").dataOrNull
             release?.let {
                 showUpdateDialog = it.tagName.toInt() > BuildConfig.VERSION_CODE
             }
-            repo.getLatestRelease("pyoncord/BunnyXposed").ifSuccessful {
+            repo.getLatestRelease("Opti-mod/OptiXposed").ifSuccessful {
                 if (prefs.moduleVersion != it.tagName) {
                     prefs.moduleVersion = it.tagName
                     val module = File(cacheDir, "xposed.apk")
