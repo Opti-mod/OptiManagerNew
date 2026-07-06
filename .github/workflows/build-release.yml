@@ -37,9 +37,32 @@ jobs:
 
       - name: Build Signed APK
         run: |
-          echo "${{ secrets.keystore }}" | base64 -d > $GITHUB_WORKSPACE/signing-key.jks
+          set -e
+          if [ -n "${{ secrets.keystore }}" ]; then
+            echo "${{ secrets.keystore }}" | base64 -d > $GITHUB_WORKSPACE/signing-key.jks
+          else
+            keytool -genkeypair \
+              -alias release \
+              -keyalg RSA \
+              -keysize 2048 \
+              -validity 10000 \
+              -dname "CN=CI,O=GitHub Actions,C=US" \
+              -keystore $GITHUB_WORKSPACE/signing-key.jks \
+              -storepass changeit \
+              -keypass changeit
+          fi
           chmod +x ./gradlew
-          ./gradlew packageReleaseUniversalApk -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/signing-key.jks -Pandroid.injected.signing.store.password=${{ secrets.keystore_password }} -Pandroid.injected.signing.key.alias=${{ secrets.key_alias }} -Pandroid.injected.signing.key.password=${{ secrets.key_password }}
+          STORE_PASSWORD="${{ secrets.keystore_password }}"
+          KEY_ALIAS="${{ secrets.key_alias }}"
+          KEY_PASSWORD="${{ secrets.key_password }}"
+          if [ -z "$STORE_PASSWORD" ]; then STORE_PASSWORD=changeit; fi
+          if [ -z "$KEY_ALIAS" ]; then KEY_ALIAS=release; fi
+          if [ -z "$KEY_PASSWORD" ]; then KEY_PASSWORD="$STORE_PASSWORD"; fi
+          ./gradlew packageReleaseUniversalApk \
+            -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/signing-key.jks \
+            -Pandroid.injected.signing.store.password="$STORE_PASSWORD" \
+            -Pandroid.injected.signing.key.alias="$KEY_ALIAS" \
+            -Pandroid.injected.signing.key.password="$KEY_PASSWORD"
 
       - name: Release
         run: |
