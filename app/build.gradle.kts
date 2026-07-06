@@ -120,6 +120,8 @@ dependencies {
             type = "aar"
         }
     }
+
+    testImplementation(kotlin("test"))
 }
 
 fun getCurrentBranch(): String? =

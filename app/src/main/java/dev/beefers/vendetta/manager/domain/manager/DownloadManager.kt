@@ -5,6 +5,7 @@ import android.content.Context
 import android.database.Cursor
 import android.net.Uri
 import androidx.core.content.getSystemService
+import dev.beefers.vendetta.manager.utils.DownloadUrlUtils
 import kotlinx.coroutines.CancellationException
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.delay
@@ -53,7 +54,8 @@ class DownloadManager(
         val downloadManager = context.getSystemService<DownloadManager>()
             ?: throw IllegalStateException("DownloadManager service is not available")
 
-        val downloadId = DownloadManager.Request(Uri.parse(url))
+        val normalizedUrl = DownloadUrlUtils.normalize(url)
+        val downloadId = DownloadManager.Request(Uri.parse(normalizedUrl))
             .setTitle("Opti Manager")
             .setDescription("Downloading ${out.name}...")
             .setDestinationUri(Uri.fromFile(out))
