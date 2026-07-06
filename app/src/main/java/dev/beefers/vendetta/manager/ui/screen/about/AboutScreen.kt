@@ -195,11 +195,11 @@ class AboutScreen : Screen {
                 ) {
                     ElevatedCard {
                         ListItem(
-                            text = "placeholder",
-                            subtext = "U could be here",
-                            imageUrl = "https://github.com/byeoon.png",
+                            text = "pylix",
+                            subtext = "They made Bunny, which is what Opti runs on",
+                            imageUrl = "https://github.com/amsryq.png",
                             onClick = {
-                                uriHandler.openUri("https://github.com/byeoon")
+                                uriHandler.openUri("https://github.com/amsryq")
                             }
                         )
                         HorizontalDivider(
@@ -209,6 +209,26 @@ class AboutScreen : Screen {
                         )
                     }
                 }
+                Box(
+                    modifier = Modifier.padding(horizontal = 16.dp)
+                ) {
+                    ElevatedCard {
+                        ListItem(
+                            text = "maisymoe",
+                            subtext = "They made Vendetta, which is what Opti USED TO run on (and Bunny too)",
+                            imageUrl = "https://github.com/maisymoe.png",
+                            onClick = {
+                                uriHandler.openUri("https://github.com/maisymoe")
+                            }
+                        )
+                        HorizontalDivider(
+                            modifier = Modifier.padding(horizontal = 16.dp),
+                            thickness = 0.5.dp,
+                            color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f)
+                        )
+                    }
+                }
+
 
                 Box(
                     modifier = Modifier.padding(16.dp)

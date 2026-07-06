@@ -6,10 +6,10 @@ import kotlin.test.assertEquals
 class DownloadUrlUtilsTest {
     @Test
     fun convertsGithubBlobUrlToRawDownloadUrl() {
-        val input = "https://github.com/Opti-mod/OptiUpdated/blob/main/dist/bunny.js"
+        val input = "https://github.com/Opti-mod/Opti/blob/main/dist/bunny.js"
 
         assertEquals(
-            "https://raw.githubusercontent.com/Opti-mod/OptiUpdated/main/dist/bunny.js",
+            "https://raw.githubusercontent.com/Opti-mod/Opti/main/dist/bunny.js",
             DownloadUrlUtils.normalize(input)
         )
     }
